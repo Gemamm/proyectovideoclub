@@ -17,7 +17,7 @@ public class Test {
             System.out.println(" 1.- Catalogo peliculas");
             System.out.println(" 2.- Agregar pelicula");
             System.out.println(" 3.- Listar peliculas");
-            System.out.println(" 4.- Buscra pelicula");
+            System.out.println(" 4.- Buscar pelicula");
             System.out.println(" 0.- Salir");
             System.out.print("Indica la opción deseada: ");
             Scanner sn = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Test {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Hola");
+                    catalogo.iniciarCatalogo(nombreCatalogo);
                     break;
                 case 2:
                     System.out.print("Introduce la pelicula:\t");
@@ -35,6 +35,7 @@ public class Test {
                     catalogo.agregarPelicula(nombrePeli, nombreCatalogo);
                     break;
                 case 3:
+                    catalogo.listarPeliculas(nombreCatalogo);
 
                     break;
                 case 4:

@@ -12,7 +12,7 @@ import java.io.*;
 public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
-    public boolean existe(String nombreArchivo)  {
+    public boolean existe(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
         return true;
     }
@@ -45,7 +45,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
     @Override
     public void escribir(Pelicula pelicula, String nombreArchivo, boolean anexar) throws EscrituraDatosEx {
         //PEGO EL CODIGO DE AGREGAR (escribir sobreescribe)
-         //Declaramos obj tipo File
+        //Declaramos obj tipo File
         File archivo = new File(nombreArchivo);
         try {
             //Invocamos al FileWriter para poder anexar la información y no spobreeescribir
@@ -53,7 +53,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
             //true xa que anexe info
             salida.println(pelicula.getNombre());
             salida.close();
-        }  catch (IOException e) { //excepciones de E/S (lectura y escritura)
+        } catch (IOException e) { //excepciones de E/S (lectura y escritura)
             e.printStackTrace(System.out);
             throw new EscrituraDatosEx("Excepción al escribir el archivo");
         }
@@ -61,38 +61,57 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
     public String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx {
-         var archivo = new File(nombreArchivo);
-        var resultado = "";
+        var archivo = new File(nombreArchivo);
+        String mensaje = "";
         try {
             //entrada es el descriptor de lectura
             var entrada = new BufferedReader(new FileReader(archivo));
             //nos devuelve una linea de nuestro archivo 
             var lectura = entrada.readLine();
-            var i = 0;
-            while(!lectura.equalsIgnoreCase(buscar)){
-                i++;
+            int cont = 1;
+            while (lectura != null) {
+                if (!lectura.equalsIgnoreCase(buscar)) {
+                    mensaje = "\nLa pelicula: " + buscar + ", está en la línea " + cont;
+                    break;
+                }
+
                 // Avanzamos en la lectura
                 lectura = entrada.readLine();
+                cont++;
             }
-            resultado = "\nLa pelicula: " + buscar + ", está en la posición "+ i;
+            if (lectura == null) {
+                mensaje = "La pelicula" + buscar + "no esta"
+                        + "en el catalogo";
+            }
             entrada.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace(System.out);
-        } catch (IOException e){
+            throw new LecturaDatosEx("Error de lectura listando las peliculas");
+        } catch (IOException e) {
             e.printStackTrace(System.out);
+            throw new LecturaDatosEx("Error de lectura listando las peliculas");
         }
-        return resultado;
+        return mensaje;
     }
 
     @Override
-    public String crear(String nombreArchivo) throws AccesoDatosEx {
-        return "";
+    public void crear(String nombreArchivo) throws AccesoDatosEx {
+        var archivo  = new File (nombreArchivo);
+        try {
+            var salida = new PrintWriter (new FileWriter(archivo));
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            throw new AccesoDatosEx("Error al crear el archivo");
+        }
     }
 
     @Override
-    public void borrar(String nombreArchivo) throws AccesoDatosEx {
-
+    public void borrar(String nombreArchivo){
+        File archivo = new File (nombreArchivo);
+        if (archivo.exists()){
+            archivo.delete();
+        }
+        System.out.println("Se ha borrado el archivo");
     }
 
-    
 }

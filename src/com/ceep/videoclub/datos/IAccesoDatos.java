@@ -37,8 +37,8 @@ public interface IAccesoDatos {
     String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx;
 
     //Crea el archoivo
-    String crear(String nombreArchivo) throws AccesoDatosEx;
+    void crear(String nombreArchivo) throws AccesoDatosEx;
 
     //Borra el archivo
-    void borrar(String nombreArchivo) throws AccesoDatosEx;
+    void borrar(String nombreArchivo);
 }
