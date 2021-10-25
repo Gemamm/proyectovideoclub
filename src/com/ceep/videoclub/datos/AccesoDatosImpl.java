@@ -98,7 +98,7 @@ public class AccesoDatosImpl implements IAccesoDatos {
     public void crear(String nombreArchivo) throws AccesoDatosEx {
         var archivo  = new File (nombreArchivo);
         try {
-            var salida = new PrintWriter (new FileWriter(archivo));
+            var salida = new PrintWriter (new PrintWriter(archivo));
         } catch (Exception e) {
             e.printStackTrace(System.out);
             throw new AccesoDatosEx("Error al crear el archivo");
