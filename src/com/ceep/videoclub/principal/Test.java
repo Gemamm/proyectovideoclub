@@ -9,10 +9,52 @@ public class Test {
 
     public static void main(String[] args) {
         //Creamos puente de comuniucacion con Catalogo
+       var option = -1;
+       var nombrePeli = "";
+       var lectura = new Scanner(System.in);
         var nombreCatalogo = "Videoclub.txt";
         ICatalogoPelicula catalogo = new CatalogoPeliculasImp();
       
-        while (true) {
+        catalogo.agregarPelicula("Matrix", nombreCatalogo);
+        while (option != 0){
+            System.out.println("Elige una de las opciones: \n"
+                    + "1.- Catalogo peliculas. \n"
+                    + "2.- Agregar pelicula. \n"
+                    + "3.- Listar peliculas. \n"
+                    + "4.- Buscar pelicula. \n"
+                    + "0.- Salir\n");
+           option = Integer.parseInt(lectura.nextLine());
+           
+           switch (option){
+               case 1:
+                    catalogo.iniciarCatalogo(nombreCatalogo);
+                    System.out.println("Catalogo inicado...");
+                    break;
+                case 2:
+                    System.out.print("Introduce la pelicula:\t");
+                    nombrePeli = lectura.nextLine();
+                    catalogo.agregarPelicula(nombrePeli, nombreCatalogo);
+                    System.out.println("Se ha agrgado la " + nombrePeli + "al catalogo"
+                    +nombreCatalogo);
+                    break;
+                case 3:
+                    catalogo.listarPeliculas(nombreCatalogo);
+                    
+
+                    break;
+                case 4:
+                    System.out.print("Introduce la pelicula a buscar:\t");
+                    nombrePeli = lectura.nextLine();
+                    catalogo.buscarPelicula(nombreCatalogo, nombrePeli);
+                    break;
+                case 0:
+                    System.out.println("Gracias!, hasta la proxima");
+                    break;
+                default:
+                    System.out.println("Opción desconocida");
+           }
+        }
+       /* while (true) {
             System.out.println("MENU");
             System.out.println(" 1.- Catalogo peliculas");
             System.out.println(" 2.- Agregar pelicula");
@@ -48,7 +90,7 @@ public class Test {
                     break;
 
             }
-        }
+        }*/
 
     }
 
