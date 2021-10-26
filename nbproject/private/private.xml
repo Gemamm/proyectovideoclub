@@ -4,11 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/negocio/CatalogoPeliculasImp.java</file>
+            <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/excepciones/AccesoDatosEx.java</file>
+            <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/excepciones/EscrituraDatosEx.java</file>
             <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/datos/AccesoDatosImpl.java</file>
             <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/principal/Test.java</file>
             <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/negocio/ICatalogoPelicula.java</file>
             <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/datos/IAccesoDatos.java</file>
+            <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/excepciones/LecturaDatosEx.java</file>
             <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/Videoclub.txt</file>
+            <file>file:/E:/DAM/GitHub/ProyectoVideoclub-main/proyectovideoclub/src/com/ceep/videoclub/dominio/Pelicula.java</file>
         </group>
     </open-files>
 </project-private>
